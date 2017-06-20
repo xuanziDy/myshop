@@ -5,9 +5,11 @@
     <title>后台系统 - @yield('meta_title') </title>
     <meta name="robots" content="noindex, nofollow">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link href="/admin/css/general.css" rel="stylesheet" type="text/css"/>
-    <link href="/admin/css/main.css" rel="stylesheet" type="text/css"/>
-    <link href="/admin/css/page.css" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('admin/css/general.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('admin/css/main.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('admin/css/page.css') }}" rel="stylesheet" type="text/css"/>
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  
     @yield('css')
 </head>
 <body>
@@ -24,8 +26,8 @@
 @section('search')
 
     <div class="form-div">
-        <form action="{:U()}" name="searchForm">
-            <img src="/admin/images/icon_search.gif" width="26" height="22" border="0" alt="search"/>
+        <form action="" name="searchForm">
+            <img src="{{ asset('admin/images/icon_search.gif') }}" width="26" height="22" border="0" alt="search"/>
             <input type="text" name="keyword" size="15"/>
             <input type="submit" value="submit" class="button"/>
         </form>
@@ -39,11 +41,11 @@
 
 <div id="footer"></div>
 
-<script type="text/javascript" src="/admin/js/jquery-1.11.2.js"></script>
-<script type="text/javascript" src="/admin/layer/layer.js"></script>
-<script type="text/javascript" src="/admin/js/common.js"></script>
+<script type="text/javascript" src="{{ asset('admin/js/jquery-1.11.2.js') }}"></script>
+<script type="text/javascript" src="{{ asset('admin/layer/layer.js') }}"></script>
+<script type="text/javascript" src="{{ asset('admin/js/common.js') }}"></script>
 
-
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 @yield('js')
 
 <script type="text/javascript">

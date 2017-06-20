@@ -17,7 +17,9 @@ $(function () {
         //对于复选框而言，只有选中了的用serialize才可得。
         var params = form.length==0?$('.id').serialize():form.serialize(); //这样可以得到所有的表单信息。
         $.post(url,params,function(data){
-            showLayer(data);
+
+            console.info(data);
+            // showLayer(data);
         });
         return false; //阻止默认表单的默认提交事件。
     });

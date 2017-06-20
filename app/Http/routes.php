@@ -21,8 +21,15 @@ Route::group(['prefix' => 'GoodsCategory','middleware' =>'web'], function () {
     Route::get('/edit/{id}','GoodsCategoryController@edit')->name('GoodsCateEdit');
     Route::get('/del/{id}','GoodsCategoryController@del')->name('GoodsCateDel');
     Route::post('/save','GoodsCategoryController@save')->name('GoodsCateSave');
-
-    Route::any('/session1','GoodsCategoryController@session1')->name('GoodsCateSave');
-    Route::any('/session2','GoodsCategoryController@session2')->name('GoodsCateSave');
 });
+
+Route::group(['prefix' => 'GoodsBrand','middleware' =>'web'], function () {
+    Route::get('/index','GoodsBrandController@index');
+    Route::any('/create','GoodsBrandController@create');
+    Route::post('/store','GoodsBrandController@store');
+    Route::get('/edit/{id}','GoodsBrandController@edit');
+    Route::get('/del/{id}','GoodsBrandController@del');
+    Route::get('/upload','GoodsBrandController@upload');
+});
+
 

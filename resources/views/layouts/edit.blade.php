@@ -7,6 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link href="/admin/css/general.css" rel="stylesheet" type="text/css"/>
     <link href="/admin/css/main.css" rel="stylesheet" type="text/css"/>
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"> -->
     @yield('css')
 </head>
 <body>
@@ -18,7 +19,7 @@
         <div style="clear:both"></div>
     @show
 </h1>
-<div class="main-div">
+<div class="main-div container">
     @yield('form')
 </div>
 
@@ -29,6 +30,7 @@
 <script type="text/javascript" src="/admin/js/jquery-1.11.2.js"></script>
 <script type="text/javascript" src="/admin/layer/layer.js"></script>
 <script type="text/javascript" src="/admin/js/common.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 @yield('js')
 <script type="text/javascript">
 //    $(function () {
