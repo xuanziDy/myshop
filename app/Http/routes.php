@@ -15,12 +15,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::auth();
+
+Route::get('/tasks', 'TaskController@index');
+Route::post('/task', 'TaskController@store');
+Route::delete('/task/{task}', 'TaskController@destory');
+
+
+
+
 Route::group(['prefix' => 'GoodsCategory','middleware' =>'web'], function () {
-    Route::get('/index','GoodsCategoryController@index')->name('GoodsCateIndex');
-    Route::get('/add/{name?}','GoodsCategoryController@add')->name('GoodsCateAdd');
-    Route::get('/edit/{id}','GoodsCategoryController@edit')->name('GoodsCateEdit');
-    Route::get('/del/{id}','GoodsCategoryController@del')->name('GoodsCateDel');
-    Route::post('/save','GoodsCategoryController@save')->name('GoodsCateSave');
+    Route::get('/index','GoodsCategoryController@index');
+    Route::get('/add/{name?}','GoodsCategoryController@add');
+    Route::get('/edit/{id}','GoodsCategoryController@edit');
+    Route::get('/del/{id}','GoodsCategoryController@del');
+    Route::post('/save','GoodsCategoryController@save');
 });
 
 Route::group(['prefix' => 'GoodsBrand','middleware' =>'web'], function () {
@@ -28,8 +37,17 @@ Route::group(['prefix' => 'GoodsBrand','middleware' =>'web'], function () {
     Route::any('/create','GoodsBrandController@create');
     Route::post('/store','GoodsBrandController@store');
     Route::get('/edit/{id}','GoodsBrandController@edit');
-    Route::get('/del/{id}','GoodsBrandController@del');
+    Route::get('/destroy/{id}','GoodsBrandController@destroy');
     Route::get('/upload','GoodsBrandController@upload');
+});
+
+Route::group(['prefix' => 'GoodsType','middleware' =>'web'], function () {
+    Route::get('/index','GoodsTypeController@index');
+    Route::any('/create','GoodsTypeController@create');
+    Route::post('/store','GoodsTypeController@store');
+    Route::get('/edit/{id}','GoodsTypeController@edit');
+    Route::get('/destroy/{id}','GoodsTypeController@destroy');
+    // Route::get('/upload','GoodsTypeController@upload');
 });
 
 

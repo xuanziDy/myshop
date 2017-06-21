@@ -4,7 +4,7 @@ $(function () {
     $('.ajax-get').click(function () {
         var url = $(this).attr('href');
         $.get(url, function (data) {
-            //返回的信息，是由success来操作的。？？？？
+            //返回的信息，是由success来操作的。
             showLayer(data);
         });
         return false;
@@ -16,10 +16,8 @@ $(function () {
         var url = form.length==0?$(this).attr('url'):form.attr('action');
         //对于复选框而言，只有选中了的用serialize才可得。
         var params = form.length==0?$('.id').serialize():form.serialize(); //这样可以得到所有的表单信息。
-        $.post(url,params,function(data){
-
-            console.info(data);
-            // showLayer(data);
+        $.post(url,params,function(data){          
+            showLayer(data);
         });
         return false; //阻止默认表单的默认提交事件。
     });
@@ -29,11 +27,14 @@ $(function () {
      * @param data
      */
     function showLayer(data) {
-        layer.msg(data.info, {
-            icon: data.status ? 1 : 2,  //1是√，2是×
+
+      var obj =  typeof(data) == 'string'?eval('('+data+')'):data;
+        layer.msg(obj.info, {
+            icon: obj.status==1 ? 1 : 2,  //1是√，2是×
             time: 1000 //1秒关闭（如果不配置，默认是3秒）
-        }, function () {
-            location.href = data.url; //提示框隐藏之后就刷新页面。
+        }, function () { 
+            // console.log(obj.url);
+            window.location.href = obj.url; //提示框隐藏之后就刷新页面。
         });
     }
 

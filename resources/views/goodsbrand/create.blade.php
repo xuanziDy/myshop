@@ -63,7 +63,8 @@
             <tr>
                 <td colspan="2" align="center"><br />
                     <input type="submit" class="button" value=" 确定 " />
-                    <input type="reset" class="button" value=" 重置 " />
+                    <!-- <input type="reset" class="button" value=" 重置 " /> -->
+                    <input type="button" class="button" value=" 返回 " onclick="window.history.back()" />
                 </td>
             </tr>
         </table>

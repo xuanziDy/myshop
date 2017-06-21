@@ -61,6 +61,12 @@ return [
             'region' => 'your-region',
             'bucket' => 'your-bucket',
         ],
+        //自定义磁盘驱动 邓颖
+          'uploads' => [
+            'driver' => 'local',
+            'root' => public_path('uploads'),
+        ],
+
 
     ],
 

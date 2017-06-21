@@ -25,16 +25,19 @@
                     <td align='center'>{{ $row->intro }}</td>
                     <td align="center"><a class="ajax-get"
                                           href="{{ url('GoodsBrand/changeStatus',array('id'=>$row['id'],'status'=>1-$row->status)) }}"><img
-                            src="/public/admin/images/{{ $row->status }}.gif" alt=""/></a></td>
+                            src="{{ asset('admin/images/'.$row->status.'.gif') }}" alt=""/></a></td>
                     <td align='center'>{{ $row->sort }}</td>
                     <td align="center">
                         <a href="{{ url('GoodsBrand/edit',array('id'=>$row->id)) }}" title="编辑">编辑</a> |
-                        <a class="ajax-get" href="{{ url('GoodsBrand/changeStatus',array('id'=>$row->id)) }}" title="移除">移除</a>
+                        <a class="ajax-get" href="{{ url('GoodsBrand/destroy',array('id'=>$row->id)) }}" title="移除">移除</a>
                     </td>
                 </tr>
            @endforeach
         </table>
         <div>
+            @if(isset($success)){
+                <div>{{ $success }}</div>
+            }@endif
             <div class="pull-right">
                 {!! $rows->render() !!}
             </div>
